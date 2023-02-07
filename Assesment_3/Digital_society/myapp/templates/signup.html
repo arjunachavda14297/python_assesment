@@ -1,0 +1,71 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+  
+  <main id="main">
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area" style="background:rgb(230, 230, 230)">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Sign Up</h2>
+                <h4>{{msg}}</h4>
+              </div>
+            </div>
+          </div>
+            
+          </div>
+          <div class="row">
+            
+          <!-- Start  contact -->
+            <div class="col-md">
+              <div class="form contact-form">
+                
+                <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                  <select name="usertype" class="form-control">
+                    <option value="user">User</option>
+                  </select>  
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="fname" placeholder="Your First Name" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="lname" placeholder="Your Last Name" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="number" class="form-control" name="mobile" placeholder="Your Mobile" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="file" class="form-control" name="profile">
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="password" class="form-control" name="password" id="subject" placeholder="Password" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="password" class="form-control" name="cpassword" id="subject" placeholder="Confirm Password" required>
+                  </div>
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Sign Up</button></div>
+                
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+{% endblock %}

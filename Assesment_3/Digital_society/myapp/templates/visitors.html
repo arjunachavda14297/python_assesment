@@ -1,0 +1,67 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+  
+  <main id="main">
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area" style="background:rgb(230, 230, 230)">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Add Visitors</h2>
+                {% if msg %}
+                  <h4 style="color:green">{{msg}}</h4>
+                {% endif %}
+                {% if msg1 %}
+                  <h4 style="color:red">{{msg1}}</h4>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+            
+          </div>
+          <div class="row">
+            
+          <!-- Start  contact -->
+            <div class="col-md">
+              <div class="form contact-form">
+                
+                <form action="{% url 'add_visitor' %}" method="post">
+                {% csrf_token %}
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="number" class="form-control" name="mmobile" placeholder="Mobile Number of House Owner" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="fname" placeholder="Visitors First Name" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="lname" placeholder="Visitors Last Name" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="number" class="form-control" name="person" placeholder="How Many Persons" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="number" class="form-control" name="mobile" placeholder="Visitors Mobile" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="vehicle" placeholder="Vehicle's Number" required>
+                  </div>
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Add Visitors</button></div>
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+{% endblock %}

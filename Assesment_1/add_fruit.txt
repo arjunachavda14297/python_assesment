@@ -1,0 +1,16 @@
+fruit name :banana
+fruit qty (in Kg):2.0
+fruit price :50.0
+
+fruit name :apple
+fruit qty (in Kg):5.0
+fruit price :500.0
+
+fruit name :grapes
+fruit qty (in Kg):10.0
+fruit price :60.0
+
+fruit name :pineapple
+fruit qty (in Kg):4.0
+fruit price :90.0
+

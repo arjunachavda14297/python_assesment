@@ -1,0 +1,102 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+  
+  <main id="main">
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area" style="background:rgb(230, 230, 230)">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Add Society Member</h2>
+                {% if msg %}
+                  <h4 style="color:green">{{msg}}</h4>
+                {% endif %}
+                {% if msg1 %}
+                  <h4 style="color:red">{{msg1}}</h4>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+            
+          </div>
+          <div class="row">
+            
+          <!-- Start  contact -->
+            <div class="col-md">
+              <div class="form contact-form">
+                
+                <form action="{% url 'add_member' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <select name="member_type" class="form-control">
+                      <option value="house_owner">House Owner</option>
+                      <option value="watchman">Watchman</option>
+                    </select>  
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="fname" placeholder="Member First Name" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="lname" placeholder="Member Last Name" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="number" class="form-control" name="mobile" placeholder="Member Mobile" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Member Email" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <select name="block" class="form-control">
+                      <option value="Block 1">Block-1</option>
+                      <option value="Block 2">Block-2</option>
+                      <option value="Block 3">Block-3</option>
+                      <option value="Block 4">Block-4</option>
+                      <option value="Block 5">Block-5</option>
+                      <option value="Watchman office">Watchman Office</option>
+                    </select>  
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <select name="house" class="form-control">
+                      <option value="House 1">House-1</option>
+                      <option value="House 2">House-2</option>
+                      <option value="House 3">House-3</option>
+                      <option value="House 4">House-4</option>
+                      <option value="House 5">House-5</option>
+                      <option value="House 6">House-6</option>
+                      <option value="House 7">House-7</option>
+                      <option value="House 8">House-8</option>
+                      <option value="House 9">House-9</option>
+                      <option value="House 10">House-10</option>
+                      <option value="Office 1">Watchman Office 1</option>
+                      <option value="Office 2">Watchman Office 2</option>
+                    </select>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="file" class="form-control" name="profile" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="password" class="form-control" name="password" id="subject" placeholder="Password" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="password" class="form-control" name="cpassword" id="subject" placeholder="Confirm Password" required>
+                  </div>
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Add Member</button></div>
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+{% endblock %}

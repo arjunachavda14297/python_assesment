@@ -1,0 +1,212 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url(static/assets/img/hero-carousel/1.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">The Paradice Society </h2>
+                <p class="animate__animated animate__fadeInUp">We help you to know about our  Digital society</p>
+                <a href="{% url 'member' member_type='all' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">All Member</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(static/assets/img/hero-carousel/2.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">The Paradice Society</h2>
+                <p class="animate__animated animate__fadeInUp">We help you to know about our  Digital society</p>
+                <a href="{% url 'member' member_type='all' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">All Member</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(static/assets/img/hero-carousel/3.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">The Paradice Society</h2>
+                <p class="animate__animated animate__fadeInUp">We help you to know about our  Digital society</p>
+                <a href="{% url 'member' member_type='all' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">All Member</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Team Section ======= -->
+    <div id="team" class="our-team-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Our special Team</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% for i in special_team %}
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#">
+                  <!-- <img src="{% static 'assets/img/team/1.jpg' %}" alt=""> -->
+                  <img src="{{i.profile_pic.url}}" height="300px" width="260px">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>{{i.fname}} {{i.lname}}</h4>
+                <p>{{i.post}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          {% endfor %}
+        </div>
+      </div>
+    </div><!-- End Team Section -->
+
+    <!-- ======= Event Section ======= -->
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="section-headline text-center">
+          <h2>All Events</h2>
+        </div>
+      </div>
+    </div>
+    <div id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="testimonials-slider swiper">
+          <div class="swiper-wrapper">
+            {% for w in events %}
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{{w.user.profile_pic.url}}" class="testimonial-img" alt="">
+                <h2 style="color:white">{{w.user.fname}}</h2>
+                <h3>{{w.user.usertype}}</h3>
+                <p style="font-size:2.5rem;">
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  {{w.event_name}}
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <p style="font-size:2.0rem;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                  Location - {{w.location}}
+                </p>
+                <p style="font-size:2.0rem;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                  Date and Time - {{w.date}}
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </div><!-- End Event Section -->
+    
+<!-- ======= Blog Section ======= -->
+<div id="blog" class="blog-area">
+  <div class="blog-inner area-padding">
+    <div class="blog-overly"></div>
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline text-center">
+            <h2>All Notice</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for a in notices %}
+        <!-- Start Left Blog -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="single-blog">
+            
+            <div class="blog-meta">
+              <span class="comments-type">
+                <i class="fa fa-comment-o"></i>
+                <a href="#" style="color:red"> Notice</a>
+              </span>
+              <span class="date-type" style="color:blue">
+                <i class="fa fa-calendar"></i>{{a.date}}
+              </span>
+            </div>
+            <div class="blog-text">
+              <h4>
+                {{a.notice}}
+              </h4>
+              <h4>--------------------------------------------</h4>
+            </div>
+            
+          </div>
+          <!-- Start single blog -->
+        </div>
+        <!-- End Left Blog-->
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div><!-- End Blog Section -->
+
+  <!-- ======= Suscribe Section ======= -->
+    <div class="suscribe-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+            <div class="suscribe-text text-center">
+              <h3>Welcome to our Paradise Society</h3>
+              <a class="sus-btn" href="{% url 'contact' %}">Give Feedback</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Suscribe Section -->
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+{% endblock %}

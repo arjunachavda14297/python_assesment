@@ -1,0 +1,49 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+  
+  <main id="main">
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area" style="background:rgb(230, 230, 230)">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Add Notice</h2>
+                {% if msg %}
+                <h4 style="color:green">{{msg}}</h4>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+            
+          </div>
+          <div class="row">
+            
+          <!-- Start  contact -->
+            <div class="col-md">
+              <div class="form contact-form">
+                
+                <form action="{% url 'add_notice' %}" method="post">
+                {% csrf_token %}
+                  <div class="form-group" style="margin:10px 30%">
+                    <input type="text" class="form-control" name="notice" placeholder="Enter Notice Here" style="width:600px" required>
+                  </div>
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Add Notice</button></div>
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+{% endblock %}

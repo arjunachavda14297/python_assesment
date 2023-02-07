@@ -1,0 +1,20 @@
+customer name : arjun
+fruit name : Apple 
+fruit qty : 5.0
+
+customer name : arjun
+fruit name : Apple 
+fruit qty : 5.0
+
+customer name : arjun
+fruit name : Guava 
+fruit qty : 4.0
+
+customer name : ram
+fruit name : Banana 
+fruit qty : 2.0
+
+customer name : 1sdg
+fruit name : Banana 
+fruit qty : 1.0
+

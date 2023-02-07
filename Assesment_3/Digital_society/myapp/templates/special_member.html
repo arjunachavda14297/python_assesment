@@ -1,0 +1,55 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ======= Team Section ======= -->
+    <div id="team" class="our-team-area area-padding" style="background:rgb(255, 221, 221)">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>special Team</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for i in special_team %}
+            <div class="col-md-3 col-sm-3 col-xs-12">
+              <div class="single-team-member">
+                <div class="team-img">
+                  <a href="#">
+                    <img src="{{i.profile_pic.url}}" height="350px" width="260px">
+                  </a>
+                  <div class="team-social-icon text-center">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="bi bi-facebook"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="bi bi-twitter"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="bi bi-instagram"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="team-content text-center">
+                  <h4>{{i.fname}} {{i.lname}}</h4>
+                  <p>{{i.post}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- End column -->
+            {% endfor %}
+          </div>
+        </div>
+      </div><!-- End Team Section -->
+  
+{% endblock %}

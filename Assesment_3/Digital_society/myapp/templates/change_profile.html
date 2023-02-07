@@ -1,0 +1,68 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+  
+  <main id="main">
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area" style="background:rgb(230, 230, 230)">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Change Profile</h2>
+                {% if msg %}
+                <h4 style="color:green">{{msg}}</h4>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+            
+          </div>
+          <div class="row">
+            
+          <!-- Start  contact -->
+            <div class="col-md">
+              <div class="form contact-form">
+                
+                <form action="{% url 'change_profile' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="usertype" value="{{user.usertype}}" readonly>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="fname" placeholder="Your First Name" value="{{user.fname}}" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="text" class="form-control" name="lname" placeholder="Your Last Name" value="{{user.lname}}" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="number" class="form-control" name="mobile" placeholder="Your Mobile" value="{{user.mobile}}" required>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" value="{{user.email}}" readonly>
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <img src="{{user.profile_pic.url}}" width="100px" height="100px">
+                  </div>
+                  <div class="form-group mt-6" style="margin:10px 40%">
+                    <input type="file" class="form-control" name="profile">
+                  </div>
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Update Profile</button></div>
+                
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+{% endblock %}
